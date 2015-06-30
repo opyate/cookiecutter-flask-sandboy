@@ -1,0 +1,10 @@
+{
+  "name": "Flask-Sandboy Service",
+  "description": "A microservice that does something.",
+  "repository": "https://github.com/{{cookiecutter.github_username}}/{{ cookiecutter.app_name }}",
+  "logo": "https://raw.githubusercontent.com/{{cookiecutter.github_username}}/{{ cookiecutter.app_name }}/master/logo.png",
+    "keywords": ["python", "flask", "sandboy", "postgresql"],
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ]
+}

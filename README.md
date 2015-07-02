@@ -29,10 +29,6 @@ This template has the following opinions:
 
 - the test database must be the same as the development database must be the same as the production database
 
-## TODO
-
-- Implement an extra dummy model to show a foreign key relationship at work.
-
 # Inspiration
 
 - [cookiecutter-flask](https://github.com/sloria/cookiecutter-flask)
@@ -44,6 +40,10 @@ This template has the following opinions:
 MIT licensed.
 
 ## Changelog
+
+### 0.1.1 (2015-07-02)
+
+- Add extra model to show relations
 
 ### 0.1.0 (2015-06-16)
 

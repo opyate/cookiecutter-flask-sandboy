@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
 """Defines fixtures available to all tests."""
-import os
-
 import pytest
-from webtest import TestApp
 
 from {{ cookiecutter.app_name }}.settings import TestConfig
-from {{cookiecutter.app_name}}.app import create_app
-from {{cookiecutter.app_name}}.extensions import db as _db
-
-from .factories import FooFactory
+from {{ cookiecutter.app_name }}.app import create_app
+from {{ cookiecutter.app_name }}.extensions import db as _db
 
 
 @pytest.yield_fixture(scope='session')
@@ -27,4 +22,5 @@ def client(app):
         _db.app = app
         _db.create_all()
         yield client
-        # _db.drop_all() # <- this hangs with PostgresQL.
+        _db.session.rollback()
+        _db.drop_all()

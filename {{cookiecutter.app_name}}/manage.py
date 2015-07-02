@@ -6,7 +6,8 @@ from flask_migrate import MigrateCommand
 
 from {{cookiecutter.app_name}}.app import create_app
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
-from {{cookiecutter.app_name}}.models.foo import Foo 
+from {{cookiecutter.app_name}}.models.foo import Foo
+from {{cookiecutter.app_name}}.models.basket import Basket
 from {{cookiecutter.app_name}}.extensions import db
 
 if os.environ.get("{{cookiecutter.app_name | upper}}_ENV") == 'prod':
@@ -24,7 +25,7 @@ def _make_context():
     """Return context dict for a shell session so you can access
     app, db and the Foo model by default.
     """
-    return {'app': app, 'db': db, 'Foo': Foo}
+    return {'app': app, 'db': db, 'Foo': Foo, 'Basket': Basket}
 
 
 @manager.command

@@ -33,13 +33,19 @@ And finally, here's the backend developer's version of a pretty welcome screen:
 
     # create a foo
     curl -X POST \
-    -H 'Content-Type: application/json' \
-    http://localhost:3000/foo \
-    -d '{"bar":42}'
+      -H 'Content-Type: application/json' \
+      http://localhost:5000/basket \
+      -d '{"name":"Hello Basket"}'
+
+    curl -X POST \
+      -H 'Content-Type: application/json' \
+      http://localhost:5000/foo \
+      -d '{"bar":42,"baz":"quux","basket_id":1}'
+
     # read it back
     curl -X GET \
-    -H 'Accept: application/json' \
-    http://localhost:3000/foo
+      -H 'Accept: application/json' \
+      http://localhost:5000/foo/1
 
 
 ## Deployment

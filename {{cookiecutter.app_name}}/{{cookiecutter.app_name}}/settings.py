@@ -8,7 +8,8 @@ class Config(object):
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     dburl = os.environ.get('DATABASE_URL')
     SQLALCHEMY_DATABASE_URI = '%s?application_name={{ cookiecutter.app_name }}' % dburl
-    
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 
 class ProdConfig(Config):
     """Production configuration."""

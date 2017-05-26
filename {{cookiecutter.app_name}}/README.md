@@ -10,19 +10,16 @@
 
 ## Quickstart
 
-First, set your app's secret key as an environment variable. For example, example add the following to ```.bashrc``` or ```.bash_profile```.
-
-    export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
+Run the following commands to bootstrap your environment.
 
 
-Then run the following commands to bootstrap your environment.
-
-    git clone https://github.com/{{cookiecutter.github_username}}/{{ cookiecutter.app_name }}
-    cd {{cookiecutter.app_name}}
     pip install -r requirements/dev.txt
-    python manage.py server
+    createdb  -h localhost -p 5432 -U postgres {{cookiecutter.app_name}}
 
-Once you have installed your DBMS, run the following to create your app's database tables and perform the initial migration:
+    export {{cookiecutter.app_name | upper}}_SECRET=$(head /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 42 | head -n 1)
+    export DATABASE_URL=postgres://postgres@localhost:5432/{{cookiecutter.app_name}}
+    export HTTP_BASICAUTH_USERNAME=admin
+    export HTTP_BASICAUTH_PASSWORD=password
 
     python manage.py db init
     python manage.py db migrate
@@ -58,7 +55,7 @@ To open the interactive shell, run
 
     python manage.py shell
 
-By default, you will have access to ``app``, ``db``, and the ``Foo`` model.
+By default, you will have access to ``app``, ``db``, and the [models]({{cookiecutter.app_name}}/models).
 
 ## Running Tests
 

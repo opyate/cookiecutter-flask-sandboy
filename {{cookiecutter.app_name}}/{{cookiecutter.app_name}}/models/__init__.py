@@ -1,4 +1,4 @@
-from flask.ext.sandboy import Sandboy
+from flask_sandboy import Sandboy
 
 from .foo import Foo
 from .basket import Basket

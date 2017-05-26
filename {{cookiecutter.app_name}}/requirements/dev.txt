@@ -2,8 +2,8 @@
 -r prod.txt
 
 # Testing
-pytest>=2.6.3
-factory-boy==2.5.1
+pytest
+factory-boy
 
 # Management script
 Flask-Script

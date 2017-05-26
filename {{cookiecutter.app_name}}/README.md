@@ -14,6 +14,7 @@ Run the following commands to bootstrap your environment.
 
 
     pip install -r requirements/dev.txt
+    # Assuming Postgresql
     createdb  -h localhost -p 5432 -U postgres {{cookiecutter.app_name}}
 
     export {{cookiecutter.app_name | upper}}_SECRET=$(head /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 42 | head -n 1)

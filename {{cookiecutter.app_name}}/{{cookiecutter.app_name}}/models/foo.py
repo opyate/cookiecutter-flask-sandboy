@@ -1,6 +1,6 @@
 from sqlalchemy.sql.expression import text
 
-from application.extensions import db
+from {{cookiecutter.app_name}}.extensions import db
 
 
 class Foo(db.Model):

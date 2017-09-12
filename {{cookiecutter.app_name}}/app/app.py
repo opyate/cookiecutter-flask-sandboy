@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
 from flask import Flask
-
+from flask_httpauth import HTTPBasicAuth
+from flask_cors import CORS
 from app.settings import ProdConfig
 from app.extensions import (
     db,
@@ -9,6 +10,8 @@ from app.extensions import (
     api_scaffold,
 )
 
+
+basic_auth = HTTPBasicAuth()
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here:
@@ -18,6 +21,12 @@ def create_app(config_object=ProdConfig):
     """
     app = Flask(__name__)
     app.config.from_object(config_object)
+    CORS(app)
+
+    @basic_auth.get_password
+    def get_pw(username):
+        return app.config['HTTP_BASICAUTH_PASSWORD']
+
     register_extensions(app)
     register_blueprints(app)
     register_extra(app)
@@ -25,9 +34,12 @@ def create_app(config_object=ProdConfig):
 
 
 def register_extensions(app):
+    decorators = []
+    decorators += [basic_auth.login_required]
+
     db.init_app(app)
     migrate.init_app(app, db)
-    api_scaffold.init_app(app, db)
+    api_scaffold.init_app(app, db, decorators)
     return None
 
 

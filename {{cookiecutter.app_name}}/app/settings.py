@@ -9,6 +9,8 @@ class Config(object):
     dburl = os.environ.get('DATABASE_URL')
     SQLALCHEMY_DATABASE_URI = '%s?application_name={{ cookiecutter.app_name }}' % dburl
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    HTTP_BASICAUTH_USERNAME = os.environ.get('HTTP_BASICAUTH_USERNAME')
+    HTTP_BASICAUTH_PASSWORD = os.environ.get('HTTP_BASICAUTH_PASSWORD')
 
 
 class ProdConfig(Config):

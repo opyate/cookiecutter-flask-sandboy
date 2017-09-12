@@ -44,4 +44,6 @@ docs/_build
 
 # Virtualenvs
 env
-env*
+
+# This breaks migrations/env.py for Heroku
+#env*

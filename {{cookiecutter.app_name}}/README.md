@@ -10,45 +10,62 @@
 
 ## Quickstart
 
-Run the following commands to bootstrap your environment.
+Follow these 3 steps to bootstrap your environment and run the app.
+
+
+### Step 1 - Install dependencies
 
 
     pip install -r requirements/dev.txt
-    # Assuming Postgresql
+    
+### Step 2 - Create the database
+
+E.g. if using Postgresql
+
+
     createdb  -h localhost -p 5432 -U postgres {{cookiecutter.app_name}}
+    
+### Step 3 - Quickstart
 
-    export SECRET_KEY=$(head /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 42 | head -n 1)
-    export DATABASE_URL=postgres://postgres@localhost:5432/{{cookiecutter.app_name}}
-    export HTTP_BASICAUTH_USERNAME=admin
-    export HTTP_BASICAUTH_PASSWORD=password
 
-    python manage.py db init
-    python manage.py db migrate
-    python manage.py db upgrade
-    python manage.py server
+    ./quickstart.sh
+    
 
-And finally, here's the backend developer's version of a pretty welcome screen:
+### Step 4 - Load
 
-    # create a foo
-    curl -X POST \
-      -H 'Content-Type: application/json' \
-      http://localhost:5000/basket \
-      -d '{"name":"Hello Basket"}'
 
-    curl -X POST \
-      -H 'Content-Type: application/json' \
-      http://localhost:5000/foo \
-      -d '{"bar":42,"baz":"quux","basket_id":1}'
-
-    # read it back
-    curl -X GET \
-      -H 'Accept: application/json' \
-      http://localhost:5000/foo/1
-
+Open [{{cookiecutter.app_name}}](http://127.0.0.1:5000) in a browser.
 
 ## Deployment
 
 In your production environment, make sure the ``ENV`` environment variable is set to ``"prod"``.
+
+### Heroku
+
+Initialise {{cookiecutter.app_name}} as a Git repo with
+
+    git init
+    git add .
+    git commit -m init
+    
+Create a new Heroku app
+
+    heroku create
+    heroku config:set HTTP_BASICAUTH_USERNAME=AzureDiamond
+    heroku config:set HTTP_BASICAUTH_PASSWORD=hunter2
+    heroku config:set ENV=prod
+    heroku run python manage.py db upgrade
+    
+The last `upgrade` command will utilise the existing migration scripts we created in the [quickstart.sh](quickstart.sh).
+
+Test the API on Heroku:
+
+    curl -X POST \
+      -u AzureDiamond:hunter2 \
+      -H 'Content-Type: application/json' \
+      https://fast-woodland-10679.herokuapp.com/basket \
+      -d '{"name":"Hello Basket"}'
+    
 
 ## Shell
 

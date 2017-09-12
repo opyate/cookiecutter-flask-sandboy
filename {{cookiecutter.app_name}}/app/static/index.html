@@ -152,7 +152,33 @@ button {
 
             <main class="cgmain">
 
-                <p>welcome!</p>
+                <h1>Welcome!</h1>
+
+                <h2>Quick API tour</h2>
+
+                <pre>
+# create a basket
+curl -X POST \
+    -u AzureDiamond:hunter2 \
+    -H 'Content-Type: application/json' \
+    http://127.0.0.1:5000/basket \
+    -d '{"name":"Hello Basket"}'
+
+# create a foo, and relate a basket to it
+curl -X POST \
+    -u AzureDiamond:hunter2 \
+    -H 'Content-Type: application/json' \
+    http://127.0.0.1:5000/foo \
+    -d '{"bar":42,"baz":"quux","basket_id":1}'
+
+# read it back
+curl -X GET \
+    -u AzureDiamond:hunter2 \
+    -H 'Accept: application/json' \
+    http://127.0.0.1:5000/foo/1
+                </pre>
+
+                <p>Then try loading your new resource <a href="http://AzureDiamon:hunter2@127.0.0.1:5000/foo/1">here</a>.</p>
             </main>
 
             <footer class="cgfooter">

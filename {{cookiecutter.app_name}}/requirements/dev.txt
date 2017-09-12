@@ -4,6 +4,3 @@
 # Testing
 pytest
 factory-boy
-
-# Management script
-Flask-Script

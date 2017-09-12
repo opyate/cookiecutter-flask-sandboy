@@ -5,6 +5,6 @@ from .basket import Basket
 
 
 class APIScaffold(object):
-    def init_app(self, app, db, auth=None):
-        sandboy = Sandboy(app, db, [Foo, Basket])
+    def init_app(self, app, db, decorators=[]):
+        sandboy = Sandboy(app, db, [Foo, Basket], decorators=decorators)
         return sandboy

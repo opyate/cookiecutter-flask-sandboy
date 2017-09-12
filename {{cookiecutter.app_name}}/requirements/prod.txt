@@ -2,6 +2,7 @@
 Flask
 Flask-Cors
 -e git+https://github.com/opyate/flask_sandboy@6acc925de45fe51c797f3beab99bbbc3e14d260a#egg=flask-sandboy
+Flask-Script
 
 # Database
 Flask-SQLAlchemy

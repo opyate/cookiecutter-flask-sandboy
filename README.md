@@ -9,28 +9,9 @@ A Flask-Sandboy template for [cookiecutter](https://github.com/audreyr/cookiecut
     pip install cookiecutter
     cookiecutter https://github.com/opyate/cookiecutter-flask-sandboy.git
     
-You will be asked about your basic info (name, project name, app name, etc.). This info will be used in your new project.
+You will be asked about your basic info (app name, etc.). This info will be used in your new project.
 
-### Use it now, on Heroku
-
-Run
-
-    heroku create
-    
-The previous command will output your Heroku app name, e.g.
-
-> Creating app... done, ⬢ serene-badger-31337
-> https://serene-badger-31337.herokuapp.com/ | https://git.heroku.com/serene-badger-31337.git
-
-Continue with these commands, substituting `https://git.heroku.com/serene-badger-31337.git` with your Git remote:
-
-    git init ; git add . ; git commit -m init
-    git remote add heroku https://git.heroku.com/serene-badger-31337.git
-    git push heroku master
-    
-Now visit your app and continue the setup:
-
-    heroku open
+**Your newly-generated app is self-documenting, and its README will have more information on how to continue.**
 
 ## Features
 

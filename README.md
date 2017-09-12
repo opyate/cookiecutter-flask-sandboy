@@ -28,7 +28,9 @@ Continue with these commands, substituting `https://git.heroku.com/serene-badger
     git remote add heroku https://git.heroku.com/serene-badger-31337.git
     git push heroku master
     
-Now visit your app and continue the setup.
+Now visit your app and continue the setup:
+
+    heroku open
 
 ## Features
 

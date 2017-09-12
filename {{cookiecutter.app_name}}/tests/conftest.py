@@ -2,9 +2,9 @@
 """Defines fixtures available to all tests."""
 import pytest
 
-from {{ cookiecutter.app_name }}.settings import TestConfig
-from {{ cookiecutter.app_name }}.app import create_app
-from {{ cookiecutter.app_name }}.extensions import db as _db
+from app.settings import TestConfig
+from app.app import create_app
+from app.extensions import db as _db
 
 
 @pytest.yield_fixture(scope='session')

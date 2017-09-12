@@ -9,5 +9,5 @@ db = SQLAlchemy()
 from flask_migrate import Migrate
 migrate = Migrate()
 
-from {{cookiecutter.app_name}}.models import APIScaffold
+from app.models import APIScaffold
 api_scaffold = APIScaffold()

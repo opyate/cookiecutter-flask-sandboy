@@ -1,6 +1,5 @@
 {
 	"github_username": "opyate",
-	"project_name": "My Flask Sandboy App",
-	"app_name": "application",
-	"project_short_description": "A Flask Sandboy app."
+	"app_name": "myflasksandboyapp",
+	"app_description": "A Flask Sandboy app."
 }

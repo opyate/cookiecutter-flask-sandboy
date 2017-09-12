@@ -4,13 +4,13 @@ import os
 from flask_script import Manager, Shell, Server
 from flask_migrate import MigrateCommand
 
-from {{cookiecutter.app_name}}.app import create_app
-from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
-from {{cookiecutter.app_name}}.models.foo import Foo
-from {{cookiecutter.app_name}}.models.basket import Basket
-from {{cookiecutter.app_name}}.extensions import db
+from app.app import create_app
+from app.settings import DevConfig, ProdConfig
+from app.models.foo import Foo
+from app.models.basket import Basket
+from app.extensions import db
 
-if os.environ.get("{{cookiecutter.app_name | upper}}_ENV") == 'prod':
+if os.environ.get("ENV") == 'prod':
     app = create_app(ProdConfig)
 else:
     app = create_app(DevConfig)

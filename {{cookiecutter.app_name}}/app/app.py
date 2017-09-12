@@ -2,8 +2,8 @@
 """The app module, containing the app factory function."""
 from flask import Flask
 
-from {{cookiecutter.app_name}}.settings import ProdConfig
-from {{cookiecutter.app_name}}.extensions import (
+from app.settings import ProdConfig
+from app.extensions import (
     db,
     migrate,
     api_scaffold,
@@ -20,6 +20,7 @@ def create_app(config_object=ProdConfig):
     app.config.from_object(config_object)
     register_extensions(app)
     register_blueprints(app)
+    register_extra(app)
     return app
 
 
@@ -32,3 +33,12 @@ def register_extensions(app):
 
 def register_blueprints(app):
     return None
+
+
+def register_extra(app):
+
+    from flask import send_from_directory
+
+    @app.route('/', methods=['GET'])
+    def index():
+        return send_from_directory('static', 'index.html')

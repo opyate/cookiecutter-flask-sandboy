@@ -2,8 +2,8 @@
 from factory import Sequence, PostGenerationMethodCall
 from factory.alchemy import SQLAlchemyModelFactory
 
-from {{cookiecutter.app_name}}.models.foo import Foo
-from {{cookiecutter.app_name}}.extensions import db
+from app.models.foo import Foo
+from app.extensions import db
 
 
 class BaseFactory(SQLAlchemyModelFactory):

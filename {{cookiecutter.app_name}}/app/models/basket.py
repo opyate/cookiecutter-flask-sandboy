@@ -1,6 +1,6 @@
 from sqlalchemy.sql.expression import text
 
-from {{cookiecutter.app_name}}.extensions import db
+from app.extensions import db
 
 
 class Basket(db.Model):

@@ -13,6 +13,10 @@ You will be asked about your basic info (app name, etc.). This info will be used
 
 **Your newly-generated app is self-documenting, and its README will have more information on how to continue.**
 
+If you follow all the steps you'll end up with something like this:
+
+![new app](screenshot.png)
+
 ## Features
 
 - Flask-Sandboy for quick REST on your models
@@ -42,6 +46,10 @@ This template has the following opinions:
 MIT licensed.
 
 ## Changelog
+
+### 0.1.2 (2017-09-12)
+
+- General polish
 
 ### 0.1.1 (2015-07-02)
 
